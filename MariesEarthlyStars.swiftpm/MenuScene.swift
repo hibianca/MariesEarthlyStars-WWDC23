@@ -10,40 +10,37 @@ import SpriteKit
 class MenuScene: SKScene {
         
     var startButton: SKSpriteNode!
-    var onboardingButton: SKSpriteNode!
+    var journalButton: SKSpriteNode!
+    var creditsButton: SKSpriteNode!
+    
+    var startButtonSize = CGSize(width: 144, height: 101)
+    var journalButtonSize = CGSize(width: 213, height: 107)
+    var creditsButtonSize = CGSize(width: 129, height: 59)
     
     let customYellow = SKColor(red: 1.0, green: 0.76, blue: 0.24, alpha: 1.0)
     
     override func didMove(to view: SKView) {
-                
+
         startButton = SKSpriteNode(imageNamed: "playButton")
         //startButton.fillColor = customYellow
         startButton.position = CGPoint(x: size.width/2, y: size.height/3)
         startButton.zPosition = 1 // pra aparecer na frente das outras nodes
-        
-        onboardingButton = SKSpriteNode(imageNamed: "journalButton")
-        //onboardingButton.fillColor = customYellow
-        onboardingButton.position = CGPoint(x: size.width/2, y: size.height/6.5)
-        onboardingButton.zPosition = 1
-        
-//        let playLabel = SKLabelNode(text: "Play")
-//        playLabel.fontName = "feeling_passionate"
-//        playLabel.fontSize = 64
-//        playLabel.fontColor = SKColor.white
-//        playLabel.position = CGPoint(x: 0, y: -20)
-//        startButton.addChild(playLabel)
-        
+        startButton.size = startButtonSize
         addChild(startButton)
         
-//        let onboardingLabel = SKLabelNode(text: "Again")
-//        onboardingLabel.fontName = "feeling_passionate"
-//        onboardingLabel.fontSize = 64
-//        onboardingLabel.fontColor = SKColor.white
-//        onboardingLabel.position = CGPoint(x: 0, y: -20)
-//        onboardingButton.addChild(onboardingLabel)
+        journalButton = SKSpriteNode(imageNamed: "journalButton")
+        //onboardingButton.fillColor = customYellow
+        journalButton.position = CGPoint(x: size.width/2, y: size.height/5.5)
+        journalButton.zPosition = 1
+        journalButton.size = journalButtonSize
+        addChild(journalButton)
         
-        addChild(onboardingButton)
-        
+        creditsButton = SKSpriteNode(imageNamed: "credits-button")
+        creditsButton.position = CGPoint(x: size.width/2, y: size.height/15)
+        creditsButton.zPosition = 1
+        creditsButton.size = creditsButtonSize
+        addChild(creditsButton)
+                
         addBackground()
         
         func addBackground() {
@@ -66,8 +63,12 @@ class MenuScene: SKScene {
             startGame()
         }
         
-        if onboardingButton.contains(location) {
-            startOnboarding()
+        if journalButton.contains(location) {
+            startJournal()
+        }
+        
+        if creditsButton.contains(location) {
+            startCredits()
         }
     }
     
@@ -78,11 +79,18 @@ class MenuScene: SKScene {
         view.presentScene(gameScene)
     }
     
-    func startOnboarding() {
+    func startJournal() {
         guard let view = view else { return }
-        let onboardingScene = ThirdOnboardingScene(size: view.bounds.size)
-        onboardingScene.scaleMode = .aspectFill
-        view.presentScene(onboardingScene)
+        let journalScene = ThirdOnboardingScene(size: view.bounds.size)
+        journalScene.scaleMode = .aspectFill
+        view.presentScene(journalScene)
+    }
+    
+    func startCredits() {
+        guard let view = view else { return }
+        let creditsScene = CreditsScene(size: view.bounds.size)
+        creditsScene.scaleMode = .aspectFill
+        view.presentScene(creditsScene)
     }
     
 }

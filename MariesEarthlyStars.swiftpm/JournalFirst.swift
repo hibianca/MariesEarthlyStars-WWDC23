@@ -9,7 +9,7 @@ import SpriteKit
 
 class JournalFirst: SKScene {
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "journalFirst")
+        let background = SKSpriteNode(imageNamed: "journal-first")
         background.position = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
         background.zPosition = -1
         background.size = self.frame.size

@@ -1,6 +1,6 @@
 import SwiftUI
 import SpriteKit
-import UIKit
+import AVFoundation
 
 struct ContentView: View {
     @State var showOnboarding = true
@@ -8,7 +8,7 @@ struct ContentView: View {
     var scene: SKScene {
         let scene = showOnboarding ? OnboardingScene() : MenuScene()
         scene.size = CGSize(width: 1194, height: 834)
-        scene.scaleMode = .aspectFit
+        scene.scaleMode = .aspectFill
         return scene
     }
     
@@ -26,12 +26,15 @@ struct ContentView: View {
                 UserDefaults.standard.set(true, forKey: "launchedBefore")
             }
         }
+        .onAppear {
+            playSound(sound: "gardenOfMagicBySoundroll", type: "mp3", volume: 0.2, numberOfLoops: -1)
+        }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .previewInterfaceOrientation(.landscapeLeft)
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .previewInterfaceOrientation(.landscapeLeft)
+        }
     }
 }

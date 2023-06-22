@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import SwiftUI
 
 class OnboardingScene: SKScene {
     

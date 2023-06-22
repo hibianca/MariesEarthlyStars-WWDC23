@@ -6,9 +6,10 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class GameScene: SKScene {
+        
+    var isJournalOpen: Bool = false
     
     var menuButton: SKSpriteNode!
     
@@ -38,7 +39,7 @@ class GameScene: SKScene {
     let iconJournalSize = CGSize(width: 298, height: 357)
     let closeSize = CGSize(width: 33.05, height: 33.02)
     let retanguloSize = CGSize(width: 1197, height: 211)
-    
+
     override func didMove(to view: SKView) {
         
         let menuButtonWidth: CGFloat = 57.23
@@ -46,8 +47,9 @@ class GameScene: SKScene {
         let safeArea = view.safeAreaLayoutGuide
         
         menuButton = SKSpriteNode(imageNamed: "menu")
-        menuButton.position = CGPoint(x: safeArea.layoutFrame.maxX - 40 - menuButton.size.width / 2,
-                                           y: safeArea.layoutFrame.maxY - 40 - menuButton.size.height / 2)
+        menuButton.name = "menuButton"
+        menuButton.position = CGPoint(x: safeArea.layoutFrame.maxX - 50 - menuButton.size.width / 2,
+                                           y: safeArea.layoutFrame.maxY - 50 - menuButton.size.height / 2)
         menuButton.zPosition = 1
         menuButton.aspectFillToSize(self.size)
         menuButton.size = CGSize(width: menuButtonWidth, height: menuButtonHeight)
@@ -84,6 +86,9 @@ class GameScene: SKScene {
         iconJournal?.size = iconJournalSize
         iconJournal?.position = CGPoint(x: self.frame.midX+560, y: self.frame.midY-50)
         iconJournal?.zPosition = -1
+        iconJournal?.alpha = 0
+        let fadeIn = SKAction.fadeIn(withDuration: 2.0)
+        iconJournal?.run(fadeIn)
         addChild(iconJournal!)
         
         if let iconJournal = iconJournal {
@@ -94,6 +99,9 @@ class GameScene: SKScene {
             iconJournal.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
         }
         
+        
+
+     
         pechblenda = SKSpriteNode(imageNamed: "pechblenda-folhas")
         pechblenda?.size = pechSize
         pechblenda?.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
@@ -231,10 +239,6 @@ class GameScene: SKScene {
             let location = touch.location(in: self)
             let touchedNode = atPoint(location)
             
-            if menuButton.contains(location) {
-                goMenu()
-            }
-            
             if touchedNode.name == "martelo" {
                 touchPlayer = true
             } else if touchedNode.name == "mangueira" {
@@ -247,7 +251,13 @@ class GameScene: SKScene {
                 touchPlayer5 = true
             }
             
-            if touchedNode.name == "journalButton" {
+            if touchedNode.name == "menuButton" {
+                goMenu()
+            }
+            
+            if (touchedNode.name == "journalButton" && !isJournalOpen) {
+                
+                isJournalOpen = true
                 
                 // Display popup screen
                 let popup = SKSpriteNode(imageNamed: "journal-1")
@@ -258,7 +268,8 @@ class GameScene: SKScene {
                                 
                 // Add close button to popup
                 let closeButton = SKSpriteNode(imageNamed: "close")
-                closeButton.position = CGPoint(x: 460, y: 300)
+                //closeButton.position = CGPoint(x: 460, y: 300)
+                closeButton.position = CGPoint(x: UIScreen.main.bounds.width * 0.4, y: UIScreen.main.bounds.width * 0.28)
                 closeButton.size = closeSize
                 closeButton.name = "closeButton"
                 popup.addChild(closeButton)
@@ -273,6 +284,8 @@ class GameScene: SKScene {
                 // Remove popup screen
                 if let popup = touchedNode.parent {
                     popup.removeFromParent()
+                    
+                    isJournalOpen = false
                 }
             }
             
@@ -315,14 +328,19 @@ class GameScene: SKScene {
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchPlayer = false
+            martelo?.position = CGPoint(x: self.frame.midX-550, y: self.frame.midY-380)
         
         touchPlayer2 = false
+            mangueira?.position = CGPoint(x: self.frame.midX-290, y: self.frame.midY-380)
         
         touchPlayer3 = false
+            petri?.position = CGPoint(x: self.frame.midX-100, y: self.frame.midY-380)
         
         touchPlayer4 = false
+            erlen?.position = CGPoint(x: self.frame.midX+60, y: self.frame.midY-380)
         
         touchPlayer5 = false
+            dropper?.position = CGPoint(x: self.frame.midX+230, y: self.frame.midY-400)
         
         if pechblenda!.color == .red {
             let secondScene = SecondGameScene(size: self.size)

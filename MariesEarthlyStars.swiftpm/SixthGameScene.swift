@@ -9,6 +9,8 @@ import SpriteKit
 
 class SixthGameScene: SKScene {
     
+    var isJournalOpen: Bool = false
+    
     var menuButton: SKSpriteNode!
     
     var petriPrecipitados: SKSpriteNode!
@@ -42,8 +44,9 @@ class SixthGameScene: SKScene {
         let safeArea = view.safeAreaLayoutGuide
         
         menuButton = SKSpriteNode(imageNamed: "menu")
-        menuButton.position = CGPoint(x: safeArea.layoutFrame.maxX - 40 - menuButton.size.width / 2,
-                                           y: safeArea.layoutFrame.maxY - 40 - menuButton.size.height / 2)
+        menuButton.name = "menuButton"
+        menuButton.position = CGPoint(x: safeArea.layoutFrame.maxX - 50 - menuButton.size.width / 2,
+                                           y: safeArea.layoutFrame.maxY - 50 - menuButton.size.height / 2)
         menuButton.zPosition = 1
         menuButton.aspectFillToSize(self.size)
         menuButton.size = CGSize(width: menuButtonWidth, height: menuButtonHeight)
@@ -80,6 +83,9 @@ class SixthGameScene: SKScene {
         iconJournal?.size = iconJournalSize
         iconJournal?.position = CGPoint(x: self.frame.midX+560, y: self.frame.midY-50)
         iconJournal?.zPosition = -1
+        iconJournal?.alpha = 0
+        let fadeIn = SKAction.fadeIn(withDuration: 2.0)
+        iconJournal?.run(fadeIn)
         addChild(iconJournal!)
         
         if let iconJournal = iconJournal {
@@ -205,10 +211,6 @@ class SixthGameScene: SKScene {
             let location = touch.location(in: self)
             let touchedNode = atPoint(location)
             
-            if menuButton.contains(location) {
-                goMenu()
-            }
-            
             if touchedNode.name == "martelo" {
                 touchPlayer = true
             } else if touchedNode.name == "petri" {
@@ -219,7 +221,13 @@ class SixthGameScene: SKScene {
                 touchPlayer4 = true
             }
             
-            if touchedNode.name == "journalButton" {
+            if touchedNode.name == "menuButton" {
+                goMenu()
+            }
+            
+            if (touchedNode.name == "journalButton" && !isJournalOpen) {
+                
+                isJournalOpen = true
                 
                 // Display popup screen
                 let popup = SKSpriteNode(imageNamed: "journal-6")
@@ -259,6 +267,8 @@ class SixthGameScene: SKScene {
                 // Remove popup screen
                 if let popup = touchedNode.parent {
                     popup.removeFromParent()
+                    
+                    isJournalOpen = false
                 }
             }
         }
@@ -298,12 +308,16 @@ class SixthGameScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         touchPlayer = false
+            martelo?.position = CGPoint(x: self.frame.midX-550, y: self.frame.midY-380)
         
         touchPlayer2 = false
+            mangueira?.position = CGPoint(x: self.frame.midX-310, y: self.frame.midY-380)
         
         touchPlayer3 = false
+            pote?.position = CGPoint(x: self.frame.midX-100, y: self.frame.midY-380)
         
         touchPlayer4 = false
+            dropper?.position = CGPoint(x: self.frame.midX+60, y: self.frame.midY-380)
         
         if petriPrecipitados!.color == .red {
             let sixthScene = SeventhGameScene(size: self.size)
