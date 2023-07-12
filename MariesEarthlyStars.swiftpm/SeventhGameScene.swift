@@ -9,18 +9,8 @@ import SpriteKit
 
 class SeventhGameScene: SKScene {
     
-    var isJournalOpen: Bool = false
-        
-    var menuButton: SKSpriteNode!
-    
-    var petriPrecipitadosLiquido: SKSpriteNode!
-    var martelo: SKSpriteNode?
-    var mangueira: SKSpriteNode?
-    var pote: SKSpriteNode?
-    var dropper: SKSpriteNode?
-    var erlen: SKSpriteNode?
-    //var journal: SKSpriteNode?
-    var retangulo: SKSpriteNode?
+    var petriPrecipitadosLiquido, menuButton: SKSpriteNode!
+    var martelo, mangueira, pote, dropper, erlen, retangulo: SKSpriteNode?
     
     var touchPlayer: Bool = false
     var touchPlayer2: Bool = false
@@ -34,7 +24,6 @@ class SeventhGameScene: SKScene {
     let poteSize = CGSize(width: 200, height: 200)
     let dropperSize = CGSize(width: 200, height: 200)
     let erlenSize = CGSize(width: 200, height: 200)
-    //let journalSize = CGSize(width: 250, height: 250)
     let closeSize = CGSize(width: 33.05, height: 33.02)
     let retanguloSize = CGSize(width: 1197, height: 211)
     
@@ -70,77 +59,7 @@ class SeventhGameScene: SKScene {
         petriPrecipitadosLiquido?.size = petriPrecipitadosLiquidoSize
         petriPrecipitadosLiquido.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(petriPrecipitadosLiquido)
-        
-//        martelo = SKSpriteNode(imageNamed: "martelo")
-//        martelo?.name = "martelo"
-//        martelo?.size = marteloSize
-//        martelo?.position = CGPoint(x: self.frame.midX-550, y: self.frame.midY-380)
-//        addChild(martelo!)
-//
-//        if let martelo = martelo {
-//            let leftConstraint = SKConstraint.positionX(SKRange(lowerLimit: self.frame.minX + martelo.size.width / 2))
-//            let rightConstraint = SKConstraint.positionX(SKRange(upperLimit: self.frame.maxX - martelo.size.width / 2))
-//            let bottomConstraint = SKConstraint.positionY(SKRange(lowerLimit: self.frame.minY + martelo.size.height / 2))
-//            let topConstraint = SKConstraint.positionY(SKRange(upperLimit: self.frame.maxY - martelo.size.height / 2))
-//            martelo.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
-//        }
-//
-//        mangueira = SKSpriteNode(imageNamed: "mangueira")
-//        mangueira?.name = "mangueira"
-//        mangueira?.size = mangueiraSize
-//        mangueira?.position = CGPoint(x: self.frame.midX-290, y: self.frame.midY-380)
-//        addChild(mangueira!)
-//
-//        if let mangueira = mangueira {
-//            let leftConstraint = SKConstraint.positionX(SKRange(lowerLimit: self.frame.minX + mangueira.size.width / 2))
-//            let rightConstraint = SKConstraint.positionX(SKRange(upperLimit: self.frame.maxX - mangueira.size.width / 2))
-//            let bottomConstraint = SKConstraint.positionY(SKRange(lowerLimit: self.frame.minY + mangueira.size.height / 2))
-//            let topConstraint = SKConstraint.positionY(SKRange(upperLimit: self.frame.maxY - mangueira.size.height / 2))
-//            mangueira.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
-//        }
-//
-//        pote = SKSpriteNode(imageNamed: "pote")
-//        pote?.name = "pote"
-//        pote?.size = poteSize
-//        pote?.position = CGPoint(x: self.frame.midX-100, y: self.frame.midY-380)
-//        addChild(pote!)
-//
-//        if let pote = pote {
-//            let leftConstraint = SKConstraint.positionX(SKRange(lowerLimit: self.frame.minX + pote.size.width / 2))
-//            let rightConstraint = SKConstraint.positionX(SKRange(upperLimit: self.frame.maxX - pote.size.width / 2))
-//            let bottomConstraint = SKConstraint.positionY(SKRange(lowerLimit: self.frame.minY + pote.size.height / 2))
-//            let topConstraint = SKConstraint.positionY(SKRange(upperLimit: self.frame.maxY - pote.size.height / 2))
-//            pote.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
-//        }
-//
-//        dropper = SKSpriteNode(imageNamed: "dropper")
-//        dropper?.name = "dropper"
-//        dropper?.size = dropperSize
-//        dropper?.position = CGPoint(x: self.frame.midX+60, y: self.frame.midY-380)
-//        addChild(dropper!)
-//
-//        if let dropper = dropper {
-//            let leftConstraint = SKConstraint.positionX(SKRange(lowerLimit: self.frame.minX + dropper.size.width / 2))
-//            let rightConstraint = SKConstraint.positionX(SKRange(upperLimit: self.frame.maxX - dropper.size.width / 2))
-//            let bottomConstraint = SKConstraint.positionY(SKRange(lowerLimit: self.frame.minY + dropper.size.height / 2))
-//            let topConstraint = SKConstraint.positionY(SKRange(upperLimit: self.frame.maxY - dropper.size.height / 2))
-//            dropper.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
-//        }
-//
-//        erlen = SKSpriteNode(imageNamed: "erlen")
-//        erlen?.name = "erlen"
-//        erlen?.size = erlenSize
-//        erlen?.position = CGPoint(x: self.frame.midX+230, y: self.frame.midY-380)
-//        addChild(erlen!)
-//
-//        if let erlen = erlen {
-//            let leftConstraint = SKConstraint.positionX(SKRange(lowerLimit: self.frame.minX + erlen.size.width / 2))
-//            let rightConstraint = SKConstraint.positionX(SKRange(upperLimit: self.frame.maxX - erlen.size.width / 2))
-//            let bottomConstraint = SKConstraint.positionY(SKRange(lowerLimit: self.frame.minY + erlen.size.height / 2))
-//            let topConstraint = SKConstraint.positionY(SKRange(upperLimit: self.frame.maxY - erlen.size.height / 2))
-//            erlen.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
-//        }
-//
+
         retangulo = SKSpriteNode(imageNamed: "retangulo")
         retangulo?.size = retanguloSize
         retangulo?.position = CGPoint(x: 550, y: 105)
@@ -217,13 +136,6 @@ class SeventhGameScene: SKScene {
             
             if touchedNode.name == "menuButton" {
                 goMenu()
-            }
-            
-            if (touchedNode.name == "journalButton" && !isJournalOpen) {
-                
-                isJournalOpen = true
-            } else {
-                isJournalOpen = false
             }
             
             if petriPrecipitadosLiquido.contains(location) {

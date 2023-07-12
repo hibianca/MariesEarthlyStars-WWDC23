@@ -9,18 +9,8 @@ import SpriteKit
 
 class SixthGameScene: SKScene {
     
-    var isJournalOpen: Bool = false
-    
-    var menuButton: SKSpriteNode!
-    
-    var petriPrecipitados: SKSpriteNode!
-    var martelo: SKSpriteNode?
-    var mangueira: SKSpriteNode?
-    var pote: SKSpriteNode?
-    var dropper: SKSpriteNode?
-    var journal: SKSpriteNode?
-    var iconJournal: SKSpriteNode?
-    var retangulo: SKSpriteNode?
+    var petriPrecipitados, menuButton: SKSpriteNode!
+    var martelo, mangueira, pote, dropper, retangulo: SKSpriteNode?
     
     var touchPlayer: Bool = false
     var touchPlayer2: Bool = false
@@ -32,8 +22,6 @@ class SixthGameScene: SKScene {
     let mangueiraSize = CGSize(width: 200, height: 200)
     let poteSize = CGSize(width: 200, height: 200)
     let dropperSize = CGSize(width: 200, height: 200)
-    let journalSize = CGSize(width: 250, height: 250)
-    let iconJournalSize = CGSize(width: 298, height: 357)
     let closeSize = CGSize(width: 33.05, height: 33.02)
     let retanguloSize = CGSize(width: 1197, height: 211)
     
@@ -64,37 +52,6 @@ class SixthGameScene: SKScene {
     }
     
     func positionThings() {
-        
-        journal = SKSpriteNode(imageNamed: "journal")
-        journal?.size = journalSize
-        journal?.position = CGPoint(x: self.frame.midX+560, y: self.frame.midY-50)
-        journal?.name = "journalButton"
-        addChild(journal!)
-        
-        if let journal = journal {
-            let leftConstraint = SKConstraint.positionX(SKRange(lowerLimit: self.frame.minX + journal.size.width / 2))
-            let rightConstraint = SKConstraint.positionX(SKRange(upperLimit: self.frame.maxX - journal.size.width / 2))
-            let bottomConstraint = SKConstraint.positionY(SKRange(lowerLimit: self.frame.minY + journal.size.height / 2))
-            let topConstraint = SKConstraint.positionY(SKRange(upperLimit: self.frame.maxY - journal.size.height / 2))
-            journal.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
-        }
-        
-        iconJournal = SKSpriteNode(imageNamed: "icon-journal")
-        iconJournal?.size = iconJournalSize
-        iconJournal?.position = CGPoint(x: self.frame.midX+560, y: self.frame.midY-50)
-        iconJournal?.zPosition = -1
-        iconJournal?.alpha = 0
-        let fadeIn = SKAction.fadeIn(withDuration: 2.0)
-        iconJournal?.run(fadeIn)
-        addChild(iconJournal!)
-        
-        if let iconJournal = iconJournal {
-            let leftConstraint = SKConstraint.positionX(SKRange(lowerLimit: self.frame.minX + iconJournal.size.width / 2))
-            let rightConstraint = SKConstraint.positionX(SKRange(upperLimit: self.frame.maxX - iconJournal.size.width / 2))
-            let bottomConstraint = SKConstraint.positionY(SKRange(lowerLimit: self.frame.minY + iconJournal.size.height / 2))
-            let topConstraint = SKConstraint.positionY(SKRange(upperLimit: self.frame.maxY - iconJournal.size.height / 2))
-            iconJournal.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
-        }
         
         petriPrecipitados = SKSpriteNode(imageNamed: "petri-precipitados")
         petriPrecipitados?.size = petriPrecipitadosSize
@@ -223,53 +180,6 @@ class SixthGameScene: SKScene {
             
             if touchedNode.name == "menuButton" {
                 goMenu()
-            }
-            
-            if (touchedNode.name == "journalButton" && !isJournalOpen) {
-                
-                isJournalOpen = true
-                
-                // Display popup screen
-                let popup = SKSpriteNode(imageNamed: "journal-6")
-                popup.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-                popup.zPosition = 1
-                popup.setScale(0)
-                popup.size = CGSize(width: self.size.width * 0.9, height: self.size.height * 0.9)
-                
-                // Add close button to popup
-                let closeButton = SKSpriteNode(imageNamed: "close")
-                closeButton.position = CGPoint(x: 430, y: 290)
-                closeButton.size = closeSize
-                closeButton.name = "closeButton"
-                popup.addChild(closeButton)
-                
-                addChild(popup)
-                
-                let scaleAction = SKAction.scale(to: 1.0, duration: 0.2)
-                popup.run(scaleAction)
-                
-                let popupWidth = popup.size.width
-                let popupHeight = popup.size.height
-                let horizontalRange = SKRange(lowerLimit: popupWidth/2, upperLimit: self.size.width - popupWidth/2)
-                let verticalRange = SKRange(lowerLimit: popupHeight/2, upperLimit: self.size.height - popupHeight/2)
-                let popupConstraints = SKConstraint.positionX(horizontalRange, y: verticalRange)
-                popup.constraints = [popupConstraints]
-                
-                let closeWidth = closeButton.size.width
-                let closeHeight = closeButton.size.height
-                let closehorizontalRange = SKRange(lowerLimit: closeWidth/2, upperLimit: self.size.width - closeWidth/2)
-                let closeverticalRange = SKRange(lowerLimit: closeHeight/2, upperLimit: self.size.height - closeHeight/2)
-                let closeConstraints = SKConstraint.positionX(closehorizontalRange, y: closeverticalRange)
-                closeButton.constraints = [closeConstraints]
-                
-            } else if touchedNode.name == "closeButton" {
-                
-                // Remove popup screen
-                if let popup = touchedNode.parent {
-                    popup.removeFromParent()
-                    
-                    isJournalOpen = false
-                }
             }
         }
         

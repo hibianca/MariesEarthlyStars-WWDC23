@@ -6,9 +6,9 @@
 //
 
 import SpriteKit
+import SwiftUI
 
 class MenuScene: SKScene {
-        
     var startButton: SKSpriteNode!
     var journalButton: SKSpriteNode!
     var creditsButton: SKSpriteNode!
@@ -92,7 +92,7 @@ class MenuScene: SKScene {
         creditsScene.scaleMode = .aspectFill
         view.presentScene(creditsScene)
     }
-    
+
 }
 
 extension SKSpriteNode {
@@ -106,3 +106,4 @@ extension SKSpriteNode {
         }
     }
 }
+

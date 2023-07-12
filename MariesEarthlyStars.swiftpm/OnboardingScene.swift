@@ -16,6 +16,7 @@ class OnboardingScene: SKScene {
         background.zPosition = -1
         background.size = self.frame.size
         background.aspectFillToSize(self.size)
+        
         self.addChild(background)
         
         let icon = SKSpriteNode(imageNamed: "icon-horizontal")

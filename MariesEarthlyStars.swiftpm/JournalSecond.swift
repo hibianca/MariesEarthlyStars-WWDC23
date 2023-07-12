@@ -13,11 +13,25 @@ class JournalSecond: SKScene {
     
     override func didMove(to view: SKView) {
         
-        menuButton = SKSpriteNode(imageNamed: "menuButton")
-        menuButton.position = CGPoint(x: size.width/2, y: size.height/4.5)
+        let menuButtonWidth: CGFloat = 57.23
+        let menuButtonHeight: CGFloat = 50.09
+        let safeArea = view.safeAreaLayoutGuide
+        
+        menuButton = SKSpriteNode(imageNamed: "menu")
+        menuButton.name = "menuButton"
+        menuButton.position = CGPoint(x: safeArea.layoutFrame.maxX - 50 - menuButton.size.width / 2,
+                                           y: safeArea.layoutFrame.maxY - 50 - menuButton.size.height / 2)
         menuButton.zPosition = 1
+        menuButton.aspectFillToSize(self.size)
+        menuButton.size = CGSize(width: menuButtonWidth, height: menuButtonHeight)
         
         addChild(menuButton)
+        
+//        menuButton = SKSpriteNode(imageNamed: "menuButton")
+//        menuButton.position = CGPoint(x: size.width/2, y: size.height/4.5)
+//        menuButton.zPosition = 1
+//
+//        addChild(menuButton)
         
         let background = SKSpriteNode(imageNamed: "journal-7")
         background.position = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
