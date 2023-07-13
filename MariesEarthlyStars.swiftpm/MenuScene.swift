@@ -11,11 +11,11 @@ import SwiftUI
 class MenuScene: SKScene {
     var startButton: SKSpriteNode!
     var journalButton: SKSpriteNode!
-    var creditsButton: SKSpriteNode!
+    //var creditsButton: SKSpriteNode!
     
     var startButtonSize = CGSize(width: 144, height: 101)
     var journalButtonSize = CGSize(width: 213, height: 107)
-    var creditsButtonSize = CGSize(width: 129, height: 59)
+    //var creditsButtonSize = CGSize(width: 129, height: 59)
     
     let customYellow = SKColor(red: 1.0, green: 0.76, blue: 0.24, alpha: 1.0)
     
@@ -35,11 +35,11 @@ class MenuScene: SKScene {
         journalButton.size = journalButtonSize
         addChild(journalButton)
         
-        creditsButton = SKSpriteNode(imageNamed: "credits-button")
-        creditsButton.position = CGPoint(x: size.width/2, y: size.height/15)
-        creditsButton.zPosition = 1
-        creditsButton.size = creditsButtonSize
-        addChild(creditsButton)
+//        creditsButton = SKSpriteNode(imageNamed: "credits-button")
+//        creditsButton.position = CGPoint(x: size.width/2, y: size.height/15)
+//        creditsButton.zPosition = 1
+//        creditsButton.size = creditsButtonSize
+//        addChild(creditsButton)
                 
         addBackground()
         
@@ -67,9 +67,9 @@ class MenuScene: SKScene {
             startJournal()
         }
         
-        if creditsButton.contains(location) {
-            startCredits()
-        }
+//        if creditsButton.contains(location) {
+//            startCredits()
+//        }
     }
     
     func startGame() {
@@ -86,12 +86,12 @@ class MenuScene: SKScene {
         view.presentScene(journalScene)
     }
     
-    func startCredits() {
-        guard let view = view else { return }
-        let creditsScene = CreditsScene(size: view.bounds.size)
-        creditsScene.scaleMode = .aspectFill
-        view.presentScene(creditsScene)
-    }
+//    func startCredits() {
+//        guard let view = view else { return }
+//        let creditsScene = CreditsScene(size: view.bounds.size)
+//        creditsScene.scaleMode = .aspectFill
+//        view.presentScene(creditsScene)
+//    }
 
 }
 
