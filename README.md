@@ -26,7 +26,7 @@ Journal Screen            |
 This entire game was built with SpriteKit👾
 
 ## Video demo of the App✨
-[![Maries Demo](https://media.discordapp.net/attachments/1113871889497083968/1129107946794655815/isso.002.png?width=2038&height=736)]([https://www.youtube.com/watch?v=BDLmpXuUKpg](https://www.youtube.com/watch?v=fUVV6_EhrMI))
+[![Maries Demo](https://media.discordapp.net/attachments/1113871889497083968/1129107946794655815/isso.002.png?width=2038&height=736)](https://www.youtube.com/watch?v=fUVV6_EhrMI)
 
 ## How to play✨
 It is recommended to use the iPad Pro (11-inch) (4th generation) simulator or device.
