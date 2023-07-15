@@ -20,7 +20,7 @@ Home Screen            |  Game Screen
 
 Journal Screen            |  
 :-------------------------:|
-<img src="https://media.discordapp.net/attachments/1113871889497083968/1127941042927312987/Sem_Titulo-3.png?width=1518&height=1138" alt="Journal Screen" width="450" height="338"> | <img src="https://github.com/CynaraCosta/NebulaWWDC2023/blob/main/Screenshots/PlanetDetail.png" alt="PlanetDetail" width="487" height="685"> 
+<img src="https://media.discordapp.net/attachments/1113871889497083968/1127941042927312987/Sem_Titulo-3.png?width=1518&height=1138" alt="Journal Screen" width="450" height="338"> | 
 
 ## Frameworks✨
 This entire game was built with SpriteKit👾
