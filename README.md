@@ -16,11 +16,11 @@ For anyone who loves science!
 ## Layout
 Home Screen            |  Game Screen
 :-------------------------:|:-------------------------:
-<img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/6a4939a7-6b9a-4780-809c-94f1a4b61f38" alt="Home Screen" width="450" height="338"> | <img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/8667c254-45fb-403d-b8fe-60c471ab4619" alt="Game Screen" width="450" height="338"> 
+<img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/6a4939a7-6b9a-4780-809c-94f1a4b61f38" alt="Home Screen" width="400"> | <img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/8667c254-45fb-403d-b8fe-60c471ab4619" alt="Game Screen" width="400"> 
 
 Journal Screen            |  
 :-------------------------:|
-<img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/8cce3d0e-7f58-47b7-af07-e062580f61a9" alt="Journal Screen" width="450" height="338"> | 
+<img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/8cce3d0e-7f58-47b7-af07-e062580f61a9" alt="Journal Screen" width="400"> | 
 
 ## Frameworks✨
 This entire game was built with SpriteKit👾
