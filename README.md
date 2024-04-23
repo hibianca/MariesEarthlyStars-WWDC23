@@ -4,7 +4,7 @@
 [WWDC 2023 Scholarship Application](https://developer.apple.com/wwdc23/swift-student-challenge/)
 
 <h1 align="center">
-    <img src="https://media.discordapp.net/attachments/1113871889497083968/1121519977317531758/Behance_Maries_Earthly_Stars.002.png?width=2024&height=1138">
+    <img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/fb83c646-5ca1-4e6f-aba5-40367491ba2b">
 </h1>
 
 ## About the project✨
@@ -16,17 +16,18 @@ For anyone who loves science!
 ## Layout
 Home Screen            |  Game Screen
 :-------------------------:|:-------------------------:
-<img src="https://media.discordapp.net/attachments/1113871889497083968/1127941042411409458/Sem_Titulo-2.png?width=1518&height=1138" alt="Home Screen" width="450" height="338"> | <img src="https://media.discordapp.net/attachments/1113871889497083968/1127941041899712603/Sem_Titulo-1.png?width=1518&height=1138" alt="Game Screen" width="450" height="338"> 
+<img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/6a4939a7-6b9a-4780-809c-94f1a4b61f38" alt="Home Screen" width="450" height="338"> | <img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/8667c254-45fb-403d-b8fe-60c471ab4619" alt="Game Screen" width="450" height="338"> 
 
 Journal Screen            |  
 :-------------------------:|
-<img src="https://media.discordapp.net/attachments/1113871889497083968/1127941042927312987/Sem_Titulo-3.png?width=1518&height=1138" alt="Journal Screen" width="450" height="338"> | 
+<img src="https://github.com/hibianca/MariesEarthlyStars-WWDC23/assets/103222620/8cce3d0e-7f58-47b7-af07-e062580f61a9" alt="Journal Screen" width="450" height="338"> | 
 
 ## Frameworks✨
 This entire game was built with SpriteKit👾
 
 ## Video demo of the App✨
-[![Maries Demo](https://media.discordapp.net/attachments/1113871889497083968/1129107946794655815/isso.002.png?width=2038&height=736)](https://www.youtube.com/watch?v=fUVV6_EhrMI)
+
+https://www.youtube.com/watch?v=fUVV6_EhrMI
 
 ## How to play✨
 It is recommended to use the iPad Pro (11-inch) (4th generation) simulator or device.
